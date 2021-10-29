@@ -1,24 +1,24 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+
 export default class PlantList extends Component {
   state = {
     plants:[]
   }
 
   componentDidMount(){
-    axios
-      .get('http://localhost:3333/plants')
+    axios.get("http://localhost:3333/plants")
       .then(resp=> {
         this.setState({
           ...this.state,
           plants: resp.data
         })
+      }).catch(err=>{
+        console.log(err)
       })
-      .catch(err=> {
-        console.log("plant data:", err)
-      })
-  }
+      
+    }
  
 
   /*********  DON'T CHANGE ANYTHING IN THE RENDER FUNCTION *********/
